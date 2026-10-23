@@ -1,0 +1,820 @@
+<!DOCTYPE html>
+<html lang="pt-BR"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>KARD APOSTA — Cassino virtual grátis</title>
+<meta name="description" content="Entre no cassino virtual da KARD APOSTA: receba R$ 1.000 fictícios e jogue roleta, blackjack, slots, crash, dados e mais. 100% simulação, sem dinheiro real.">
+<meta property="og:title" content="KARD APOSTA — Cassino virtual grátis">
+<meta property="og:description" content="Simulador de cassino com dinheiro 100% fictício. Roleta, blackjack, slots, crash e esportes simulados.">
+<meta name="theme-color" content="#07090a">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🃏</text></svg>">
+<style>
+:root{--bg:#07090a;--panel:#0f1413;--panel2:#151c1a;--line:#202c28;--g:#2dff8a;--gd:#16b863;--gold:#d4af37;--tx:#f2f5f3;--mut:#8b9c94;--red:#e5484d;--r:14px}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{min-height:100%}
+body{background:var(--bg);color:var(--tx);font:15px/1.45 Inter,system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;display:grid;grid-template-columns:230px 1fr}
+button{font:inherit;color:inherit;cursor:pointer;border:0;background:none;-webkit-tap-highlight-color:transparent}
+button:focus-visible,input:focus-visible{outline:2px solid var(--g);outline-offset:2px}
+h1{font-size:26px;margin-bottom:4px}h2{font-size:17px;margin:26px 0 12px;color:var(--mut);font-weight:600}
+.sub{color:var(--mut);margin-bottom:18px}
+#nav{position:sticky;top:0;height:100vh;padding:22px 12px;background:#0a0e0d;border-right:1px solid var(--line);display:flex;flex-direction:column;gap:4px}
+#nav a{display:flex;align-items:center;gap:12px;padding:11px 14px;border-radius:10px;color:var(--mut);text-decoration:none;font-weight:600;font-size:13px;letter-spacing:.04em}
+#nav a span{font-size:18px}
+#nav a:hover{background:var(--panel2);color:var(--tx)}
+#nav a.on{background:rgba(45,255,138,.1);color:var(--g);box-shadow:inset 3px 0 var(--g)}
+.main{min-width:0;display:flex;flex-direction:column;min-height:100vh}
+.top{display:flex;justify-content:space-between;align-items:center;padding:14px 28px;border-bottom:1px solid var(--line)}
+.brand{font-weight:800;letter-spacing:.14em;font-size:14px}.brand b{color:var(--g)}
+.topbal{text-align:right;line-height:1.1}.topbal span{font-size:11px;color:var(--mut)}
+.topbal strong{display:block;font-size:20px;color:var(--gold);font-variant-numeric:tabular-nums}
+.topbal.flash strong{animation:fl .6s}
+@keyframes fl{40%{color:var(--g);transform:scale(1.06)}}
+.notice{background:#0c110f;border-bottom:1px solid var(--line);color:var(--mut);font-size:12px;text-align:center;padding:6px 12px}
+#view{flex:1;padding:28px;max-width:1100px;width:100%;margin:0 auto}
+footer{padding:18px 28px;color:var(--mut);font-size:12px;text-align:center;border-top:1px solid var(--line)}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:12px}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:var(--r);padding:16px}
+.stat small{color:var(--mut);display:block;font-size:12px}.stat b{font-size:20px;font-variant-numeric:tabular-nums}
+.pos{color:var(--g)}.neg{color:var(--red)}
+.hero{background:linear-gradient(135deg,#0f1b16,#0b0f0e);border:1px solid #1d3a2c;border-radius:18px;padding:26px;margin-bottom:14px}
+.hero small{color:var(--mut);letter-spacing:.14em}
+.hero .big{font-size:clamp(34px,8vw,56px);font-weight:800;color:var(--g);font-variant-numeric:tabular-nums}
+.game{display:flex;gap:14px;align-items:center;text-decoration:none;color:inherit;transition:border-color .15s,transform .15s}
+.game .ic{font-size:30px}.game small{color:var(--mut)}
+a.game:hover{border-color:var(--g);transform:translateY(-2px)}
+.game.lock{opacity:.5}
+.tag{margin-left:auto;font-size:11px;color:var(--gold);border:1px solid #4a3d12;border-radius:20px;padding:2px 9px;white-space:nowrap}
+.tag.go{color:var(--g);border-color:#1d5a3a}
+.bp{background:var(--panel);border:1px solid var(--line);border-radius:var(--r);padding:16px}
+.bp-bal{color:var(--mut);margin-bottom:10px}.bp-bal b{color:var(--gold)}
+.bp label{font-size:12px;color:var(--mut)}
+.bp input{width:100%;margin:4px 0 10px;padding:12px;background:#0a0e0d;border:1px solid var(--line);border-radius:10px;color:var(--tx);font-size:18px;font-weight:700}
+.chips{display:grid;grid-template-columns:repeat(4,1fr);gap:6px;margin-bottom:12px}
+.chips button{padding:10px 0;background:var(--panel2);border:1px solid var(--line);border-radius:10px;font-weight:600;font-size:13px}
+.chips button:hover{border-color:var(--g)}
+.info{display:grid;gap:4px;margin-bottom:12px;font-size:14px}
+.info div{display:flex;justify-content:space-between;color:var(--mut)}.info b{color:var(--tx);font-variant-numeric:tabular-nums}
+.play{width:100%;padding:15px;border-radius:12px;background:var(--g);color:#032012;font-weight:800;letter-spacing:.08em;font-size:16px}
+.play:disabled{background:#1b2723;color:#5d6e66;cursor:not-allowed}
+.ghost{width:100%;margin-top:10px;padding:12px;border:1px dashed var(--gold);border-radius:10px;color:var(--gold)}
+.ghost[hidden]{display:none}
+.hint{font-size:12px;color:var(--red);min-height:16px;margin-top:6px}
+.rl{display:grid;grid-template-columns:minmax(0,1fr) 340px;gap:22px;align-items:start}
+.stage{position:relative;width:min(400px,88vw);aspect-ratio:1;margin:18px auto 0}
+.wheel{position:absolute;inset:0;border-radius:50%;box-shadow:0 0 0 6px #0b0f0e,0 20px 60px rgba(0,0,0,.6)}
+.wheel canvas{width:100%;height:100%;display:block}
+.ballwrap{position:absolute;inset:0;pointer-events:none}
+.ball{position:absolute;left:50%;top:1%;width:3.5%;aspect-ratio:1;margin-left:-1.75%;border-radius:50%;background:radial-gradient(circle at 35% 30%,#fff,#bbb);box-shadow:0 2px 6px #000}
+.pointer{position:absolute;left:50%;top:-14px;margin-left:-9px;border:9px solid transparent;border-top:16px solid var(--gold)}
+.stage.win .wheel{box-shadow:0 0 0 6px #0b0f0e,0 0 50px rgba(45,255,138,.5);transition:box-shadow .4s}
+.stage.lose .wheel{filter:saturate(.7);transition:filter .4s}
+.res{min-height:76px;display:flex;gap:14px;align-items:center;justify-content:center;margin-top:18px;font-weight:800;font-size:20px;text-align:center}
+.res.pop{animation:pop .4s}@keyframes pop{from{transform:scale(.85);opacity:0}}
+.num{display:inline-grid;place-items:center;min-width:44px;height:44px;border-radius:10px;font-weight:800;color:#fff}
+.num.red{background:#b82a32}.num.black{background:#1b211f;border:1px solid #33403b}.num.green{background:#128a4a}
+.picks{display:grid;grid-template-columns:repeat(2,1fr);gap:6px;margin-bottom:10px}
+.picks button,.numgrid button{padding:10px 6px;background:var(--panel2);border:1px solid var(--line);border-radius:10px;font-weight:600;font-size:13px}
+.picks button small{display:block;color:var(--mut);font-weight:500}
+.picks .on,.numgrid .on{border-color:var(--g);background:rgba(45,255,138,.12)}
+.numgrid{display:grid;grid-template-columns:repeat(9,1fr);gap:4px;margin-bottom:14px}
+.numgrid button{padding:8px 0;font-size:12px;color:#fff}
+.numgrid .red{background:#5c1a1f}.numgrid .black{background:#171c1a}.numgrid .green{background:#0c4d2a}
+.numgrid .on{outline:2px solid var(--g)}
+.last{display:flex;gap:6px;flex-wrap:wrap;margin-top:14px;justify-content:center}
+.last .num{min-width:34px;height:34px;font-size:13px}
+.hrow{display:flex;gap:14px;align-items:center;padding:14px 0;border-bottom:1px solid var(--line)}
+.hrow .dot{font-size:20px}.hrow .m{flex:1;min-width:0}.hrow small{color:var(--mut);display:block}
+.hrow .v{font-weight:800;font-variant-numeric:tabular-nums;text-align:right}
+.btn-danger{padding:12px 18px;border:1px solid var(--red);color:var(--red);border-radius:10px;font-weight:700}
+#toasts{position:fixed;top:14px;left:50%;transform:translateX(-50%);z-index:9;display:grid;gap:8px}
+.toast{background:#101a16;border:1px solid var(--g);padding:10px 16px;border-radius:10px;animation:pop .3s}
+@media(max-width:899px){
+ body{display:block;padding-bottom:70px}
+ #nav{position:fixed;top:auto;bottom:0;left:0;right:0;height:auto;flex-direction:row;overflow-x:auto;padding:6px 6px calc(6px + env(safe-area-inset-bottom));border-right:0;border-top:1px solid var(--line);z-index:5;gap:2px}
+ #nav a{flex-direction:column;gap:2px;padding:6px 10px;font-size:10px;min-width:74px;text-align:center}
+ #nav a.on{box-shadow:inset 0 3px var(--g)}
+ .top{padding:12px 16px}#view{padding:18px 14px}
+ .rl{grid-template-columns:1fr}
+ .play{padding:18px}.chips button{padding:13px 0}
+ .numgrid{grid-template-columns:repeat(7,1fr)}
+}
+@media(prefers-reduced-motion:reduce){*{animation:none!important}}
+
+.table{background:radial-gradient(ellipse at top,#0f2a1d,#0a1511);border:1px solid #1d3a2c;border-radius:18px;padding:20px}
+.pcard{width:68px;height:98px;background:#f4f6f5;color:#111;border-radius:9px;display:inline-flex;flex-direction:column;align-items:center;justify-content:center;font-weight:800;font-size:22px;box-shadow:0 6px 16px rgba(0,0,0,.5);animation:deal .35s ease-out;margin-right:-14px}
+.pcard i{font-style:normal;font-size:26px;line-height:1}.pcard.r{color:#c8323a}
+.pcard.back{background:repeating-linear-gradient(45deg,#0c4d2a 0 6px,#128a4a 6px 12px);border:3px solid #f4f6f5}
+@keyframes deal{from{transform:translate(-80px,-60px) rotate(-12deg);opacity:0}}
+.hand{display:flex;min-height:110px;padding-right:14px;margin:6px 0 14px}
+.lbl{color:var(--mut);font-size:13px;letter-spacing:.1em}.lbl b{color:var(--g);margin-left:8px;font-size:16px}
+.acts{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:6px}
+.btn2{padding:15px 8px;background:var(--panel2);border:1px solid var(--line);border-radius:10px;font-weight:700}
+.btn2:hover:not(:disabled){border-color:var(--g)}.btn2:disabled{opacity:.35;cursor:not-allowed}
+.duo{display:flex;gap:40px;justify-content:center;text-align:center}
+.duo .pcard{margin:8px 0 0;width:100px;height:140px;font-size:32px}
+.die{display:inline-grid;place-items:center;width:110px;height:110px;font-size:96px;line-height:1;background:#f4f6f5;color:#111;border-radius:20px;margin:0 8px}
+.die.rolling{animation:shake .15s infinite}@keyframes shake{25%{transform:rotate(-8deg) translateY(-4px)}75%{transform:rotate(8deg) translateY(4px)}}
+.reels{display:flex;gap:10px;justify-content:center}
+.reel{width:92px;height:110px;display:grid;place-items:center;font-size:56px;background:#0a0e0d;border:2px solid var(--gold);border-radius:14px}
+.reel.spin{filter:blur(1.5px)}.reel.stop{animation:pop .3s}
+.crashbox{position:relative;background:#0a0e0d;border:1px solid var(--line);border-radius:16px;overflow:hidden}
+.crashbox canvas{width:100%;display:block}
+.mx{position:absolute;inset:0;display:grid;place-items:center;font-size:clamp(40px,9vw,72px);font-weight:800;pointer-events:none}.mx.dead{color:var(--red)}
+.tabs{display:flex;gap:6px;overflow-x:auto;margin-bottom:14px}
+.tabs button{padding:9px 14px;border:1px solid var(--line);border-radius:20px;white-space:nowrap;background:var(--panel2);font-weight:600;font-size:13px}
+.tabs .on{border-color:var(--g);color:var(--g)}
+.match{margin-bottom:12px}.match h3{font-size:15px;margin-bottom:10px}
+.opts{display:grid;grid-template-columns:repeat(auto-fit,minmax(90px,1fr));gap:6px}
+.opts button{padding:10px 6px;background:var(--panel2);border:1px solid var(--line);border-radius:10px;font-size:13px}
+.opts b{display:block;color:var(--gold);font-size:16px}.opts .on{border-color:var(--g);background:rgba(45,255,138,.12)}
+.bar{height:8px;background:#1b2723;border-radius:6px;overflow:hidden;margin-top:12px}.bar i{display:block;height:100%;width:0;background:var(--g)}
+.wheel.gold{border:5px solid var(--gold)}.wheel .hub{position:absolute;inset:34%;border-radius:50%;background:#0b0f0e;border:3px solid var(--gold)}
+.numgrid.w{grid-template-columns:repeat(4,1fr)}.numgrid small{display:block;color:var(--mut);font-size:10px}
+.paytable{margin-top:12px;color:var(--mut);font-size:13px;line-height:1.7}
+
+body.intro{display:block;padding-bottom:0}
+body.intro #nav,body.intro .main{display:none}
+#intro{display:none;min-height:100vh;background:radial-gradient(ellipse at 70% 0,#0f2a1d 0,#07090a 55%)}
+body.intro #intro{display:block}
+.brand{cursor:pointer}
+.in-wrap{max-width:1040px;margin:0 auto;padding:0 22px 30px}
+.in-top{display:flex;justify-content:space-between;align-items:center;padding:20px 0}
+.in-hero{display:grid;grid-template-columns:1.1fr .9fr;gap:40px;align-items:center;padding:48px 0 36px}
+.in-badge{display:inline-block;border:1px solid #1d5a3a;color:var(--g);border-radius:20px;padding:5px 14px;font-size:12px;margin-bottom:18px}
+.in-h{font-size:clamp(52px,10vw,104px);font-weight:900;line-height:.92;letter-spacing:-.03em;margin:0}.in-h span{color:var(--g)}
+.in-p{color:var(--mut);font-size:18px;max-width:480px;margin:22px 0 28px}
+.in-cta{display:flex;gap:10px;flex-wrap:wrap}
+.btn-big{padding:17px 30px;border-radius:12px;background:var(--g);color:#032012;font-weight:800;letter-spacing:.06em;font-size:16px}
+.btn-line{padding:17px 24px;border:1px solid var(--line);border-radius:12px;font-weight:700}
+.btn-line:hover{border-color:var(--g)}
+.fan{position:relative;height:320px}
+.fan .pcard{position:absolute;left:50%;top:30px;width:132px;height:188px;font-size:44px;margin:0;animation:none}
+.fan .pcard i{font-size:48px}
+.chip{position:absolute;left:50%;bottom:6px;transform:translateX(-50%);z-index:3;width:92px;height:92px;border-radius:50%;display:grid;place-items:center;background:#0b0f0e;border:4px dashed var(--gold);color:var(--gold);font-weight:800;font-size:15px;box-shadow:0 0 0 5px #0b0f0e,0 10px 30px rgba(0,0,0,.6)}
+.in-stats{display:flex;gap:36px;flex-wrap:wrap;padding:22px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.in-stats b{display:block;font-size:28px;color:var(--gold)}.in-stats span{color:var(--mut);font-size:13px}
+.in-games .game{width:100%;text-align:left}.in-games .game:hover{border-color:var(--g)}
+.in-steps{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.in-foot{color:var(--mut);font-size:12px;text-align:center;margin-top:22px}
+@media(max-width:899px){.in-hero{grid-template-columns:1fr;padding-top:20px}.fan{height:260px}.fan .pcard{width:104px;height:150px;font-size:34px}.in-steps{grid-template-columns:1fr}}
+</style></head><body class="intro">
+<section id="intro">
+<div class="in-wrap">
+  <div class="in-top"><div class="brand">KARD <b>APOSTA</b></div><span class="tag go">100% fictício</span></div>
+  <div class="in-hero">
+    <div>
+      <span class="in-badge">Simulador gratuito · sem dinheiro real</span>
+      <h1 class="in-h">KARD<br><span>APOSTA</span></h1>
+      <p class="in-p">Entre no cassino virtual, receba R$ 1.000 fictícios e teste roleta, blackjack, slots, crash e mais. Tudo pela diversão, sem arriscar um centavo de verdade.</p>
+      <div class="in-cta"><button class="btn-big" data-enter="main">JOGAR AGORA</button><button class="btn-line" data-scroll="in-games">Ver os jogos</button></div>
+      <p id="in-bal" class="sub" style="margin:16px 0 0" hidden></p>
+    </div>
+    <div class="fan" aria-hidden="true">
+      <div class="pcard" style="transform:translateX(-125%) rotate(-14deg)"><b>A</b><i>♠</i></div>
+      <div class="pcard r" style="transform:translateX(25%) rotate(14deg)"><b>7</b><i>♦</i></div>
+      <div class="pcard r" style="transform:translateX(-50%) translateY(-16px);z-index:2"><b>K</b><i>♥</i></div>
+      <div class="chip">R$ 1.000</div>
+    </div>
+  </div>
+  <div class="in-stats"><div><b>8</b><span>jogos</span></div><div><b>R$ 1.000</b><span>de banca virtual para começar</span></div><div><b>R$ 0</b><span>em dinheiro real</span></div></div>
+  <h2 id="in-games">Escolha seu jogo</h2>
+  <div class="grid in-games"><button class="card game" data-play="roulette"><span class="ic">🎡</span><div><b>Roleta</b><small>Vermelho, preto, número e mais</small></div></button><button class="card game" data-play="blackjack"><span class="ic">🃏</span><div><b>Blackjack</b><small>Chegue perto de 21</small></div></button><button class="card game" data-play="slots"><span class="ic">🎰</span><div><b>Slots</b><small>3 rolos e jackpot virtual</small></div></button><button class="card game" data-play="crash"><span class="ic">🚀</span><div><b>Crash</b><small>Retire antes do crash</small></div></button><button class="card game" data-play="dice"><span class="ic">🎲</span><div><b>Dados</b><small>Menor, maior ou número</small></div></button><button class="card game" data-play="highcard"><span class="ic">🂡</span><div><b>High Card</b><small>A carta mais alta vence</small></div></button><button class="card game" data-play="ball"><span class="ic">⚪</span><div><b>Jogo da Bola</b><small>Vermelho, preto ou verde</small></div></button><button class="card game" data-play="sports"><span class="ic">⚽</span><div><b>Esportes simulados</b><small>Partidas 100% fictícias</small></div></button></div>
+  <h2>Como funciona</h2>
+  <div class="in-steps">
+    <div class="card"><b>1. Receba a banca</b><p class="sub" style="margin:6px 0 0">Você começa com R$ 1.000 virtuais, salvos neste navegador.</p></div>
+    <div class="card"><b>2. Escolha um jogo</b><p class="sub" style="margin:6px 0 0">Defina o valor da aposta e veja o retorno potencial antes de jogar.</p></div>
+    <div class="card"><b>3. Jogue e acompanhe</b><p class="sub" style="margin:6px 0 0">Histórico e estatísticas mostram como sua banca evolui.</p></div>
+  </div>
+  <div class="card" style="margin:22px 0"><b>Jogo transparente</b><p class="sub" style="margin:6px 0 0">Os resultados são sorteados de forma uniforme e as chances de cada jogo seguem as regras mostradas na tela. Nada muda com base no seu saldo.</p></div>
+  <button class="btn-big" data-enter="main" style="width:100%">JOGAR AGORA</button>
+  <p class="in-foot">KARD APOSTA é um jogo de simulação. Todas as apostas e valores são fictícios e não possuem valor monetário real. Não há depósito, saque nem conversão em dinheiro.</p>
+</div>
+</section>
+<nav id="nav" aria-label="Menu principal"></nav>
+<div class="main">
+  <header class="top"><div class="brand">KARD <b>APOSTA</b></div><div class="topbal"><span>Banca</span><strong id="topbal">R$ 0,00</strong></div></header>
+  <div class="notice">KARD APOSTA — Todos os valores são fictícios e não possuem valor monetário real.</div>
+  <main id="view"></main>
+  <footer>KARD APOSTA é um jogo de simulação. Todas as apostas e valores são fictícios e não possuem valor monetário real.</footer>
+</div>
+<div id="toasts"></div>
+<script>
+window.CS = window.CS || {};
+// Aleatoriedade uniforme e sem viés (crypto). Nenhum resultado depende do saldo do jogador.
+CS.RNG = {
+  int(n) {
+    const a = new Uint32Array(1), lim = Math.floor(4294967296 / n) * n;
+    do { crypto.getRandomValues(a); } while (a[0] >= lim);
+    return a[0] % n;
+  }
+};
+
+CS.Save = (() => {
+  const KEY = 'kard-aposta-v1';
+  const def = () => ({
+    balance: 1000, peak: 1000,
+    stats: { games: 0, wins: 0, losses: 0, bet: 0, won: 0, lost: 0, maxWin: 0, maxLoss: 0, maxBet: 0, byGame: {} },
+    history: [], settings: { sound: true }
+  });
+  function load() {
+    try {
+      const r = JSON.parse(localStorage.getItem(KEY));
+      if (r && typeof r.balance === 'number') {
+        const d = def();
+        return Object.assign(d, r, { stats: Object.assign(d.stats, r.stats) });
+      }
+    } catch (e) {}
+    return def();
+  }
+  let data = load();
+  return {
+    get data() { return data; },
+    save() { try { localStorage.setItem(KEY, JSON.stringify(data)); } catch (e) {} },
+    reset() { data = def(); this.save(); }
+  };
+})();
+
+CS.Bank = (() => {
+  const d = () => CS.Save.data;
+  const r2 = v => Math.round(v * 100) / 100;
+  const subs = new Set();
+  const emit = () => subs.forEach(f => f());
+  return {
+    get balance() { return d().balance; },
+    on(fn) { subs.add(fn); return () => subs.delete(fn); },
+    emit,
+    canBet(v) { return Number.isFinite(v) && v >= 1 && v <= d().balance; },
+    // desconta a aposta; nunca deixa o saldo negativo
+    place(v) {
+      if (!this.canBet(v)) return false;
+      d().balance = r2(d().balance - v);
+      CS.Save.save(); emit(); return true;
+    },
+    // payout = total devolvido ao jogador (0 se perdeu)
+    settle({ game, pick, bet, payout, extra }) {
+      const s = d().stats, profit = r2(payout - bet);
+      d().balance = r2(d().balance + payout);
+      d().peak = Math.max(d().peak, d().balance);
+      s.games++; s.bet = r2(s.bet + bet); s.maxBet = Math.max(s.maxBet, bet);
+      s.byGame[game] = (s.byGame[game] || 0) + 1;
+      if (profit > 0) { s.wins++; s.won = r2(s.won + profit); s.maxWin = Math.max(s.maxWin, profit); }
+      else if (profit < 0) { s.losses++; s.lost = r2(s.lost - profit); s.maxLoss = Math.max(s.maxLoss, -profit); }
+      CS.History.add({ game, pick, bet, payout, profit, extra });
+      CS.Save.save(); emit();
+      return profit;
+    },
+    // só disponível com a banca zerada; mantém histórico e estatísticas
+    refill() { if (d().balance < 1) { d().balance = 1000; CS.Save.save(); emit(); } }
+  };
+})();
+
+CS.History = {
+  add(e) {
+    const h = CS.Save.data.history;
+    h.unshift(Object.assign({ t: Date.now() }, e));
+    if (h.length > 300) h.length = 300;
+  },
+  list() { return CS.Save.data.history; }
+};
+
+CS.cleanups = [];
+CS.fmt = v => new Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' }).format(v);
+CS.sfmt = v => (v >= 0 ? '+' : '−') + CS.fmt(Math.abs(v));
+
+// Painel de aposta reutilizável por todos os jogos
+// opt.mult(): multiplicador (retorno total / aposta) ou 0 se ainda não há escolha; opt.onPlay(valor)
+CS.BetPanel = {
+  mount(el, opt) {
+    el.classList.add('bp');
+    el.innerHTML = `
+      <div class="bp-bal">Sua banca: <b data-bal></b></div>
+      <label for="bv">Valor da aposta</label>
+      <input id="bv" type="number" inputmode="numeric" min="1" step="1" value="10">
+      <div class="chips">
+        ${[10, 25, 50, 100].map(v => `<button data-v="${v}">R$${v}</button>`).join('')}
+        ${[25, 50, 100].map(p => `<button data-p="${p}">${p}%</button>`).join('')}
+      </div>
+      <div class="info">
+        <div>Valor apostado <b data-k="stake"></b></div>
+        <div>Retorno potencial <b data-k="ret"></b></div>
+        <div>Lucro potencial <b data-k="prof"></b></div>
+      </div>
+      <button class="play">JOGAR</button>
+      <div class="hint"></div>
+      <button class="ghost" hidden>Banca zerada — começar nova banca (R$ 1.000)</button>`;
+    const inp = el.querySelector('input'), play = el.querySelector('.play');
+    const hint = el.querySelector('.hint'), ghost = el.querySelector('.ghost');
+    const q = k => el.querySelector(`[data-k="${k}"]`);
+    let busy = false;
+    const val = () => Math.floor(Number(inp.value) || 0);
+
+    function update() {
+      const b = val(), m = opt.mult(), bal = CS.Bank.balance;
+      el.querySelector('[data-bal]').textContent = CS.fmt(bal);
+      q('stake').textContent = CS.fmt(Math.max(b, 0));
+      q('ret').textContent = m ? CS.fmt(b * m) : '—';
+      q('prof').textContent = m ? CS.fmt(b * m - b) : '—';
+      const bad = !(b >= 1 && b <= bal);
+      play.disabled = busy || bad;
+      hint.textContent = busy ? '' : (b > bal ? 'Aposta maior que a sua banca.' : (b < 1 ? 'Informe uma aposta de pelo menos R$ 1.' : ''));
+      ghost.hidden = busy || bal >= 1;
+    }
+    el.querySelectorAll('.chips button').forEach(btn => btn.onclick = () => {
+      const bal = CS.Bank.balance;
+      inp.value = btn.dataset.v ? btn.dataset.v : Math.max(1, Math.floor(bal * btn.dataset.p / 100));
+      update();
+    });
+    inp.oninput = update;
+    play.onclick = () => { const b = val(); if (CS.Bank.canBet(b)) opt.onPlay(b); };
+    ghost.onclick = () => { CS.Bank.refill(); inp.value = 10; update(); };
+    CS.cleanups.push(CS.Bank.on(update));
+    update();
+    return { update, setBusy(b) { busy = b; update(); } };
+  }
+};
+
+CS.Roulette = (() => {
+  // ordem real da roleta europeia (37 casas, 0 único)
+  const ORDER = [0,32,15,19,4,21,2,25,17,34,6,27,13,36,11,30,8,23,10,5,24,16,33,1,20,14,31,9,22,18,29,7,28,12,35,3,26];
+  const REDS = new Set([1,3,5,7,9,12,14,16,18,19,21,23,25,27,30,32,34,36]);
+  const color = n => n === 0 ? 'green' : REDS.has(n) ? 'red' : 'black';
+  const PICKS = [['red','Vermelho',2],['black','Preto',2],['green','Verde (0)',36],['even','Par',2],['odd','Ímpar',2],['low','Baixo 1–18',2],['high','Alto 19–36',2]];
+  const wins = (p, n) => {
+    switch (p.type) {
+      case 'red': case 'black': case 'green': return color(n) === p.type;
+      case 'even': return n > 0 && n % 2 === 0;
+      case 'odd': return n % 2 === 1;
+      case 'low': return n >= 1 && n <= 18;
+      case 'high': return n >= 19;
+      default: return n === p.n;
+    }
+  };
+  const mult = p => !p ? 0 : (p.type === 'num' || p.type === 'green') ? 36 : 2;
+  const label = p => p.type === 'num' ? 'Número ' + p.n : PICKS.find(x => x[0] === p.type)[1];
+
+  function drawWheel(cv) {
+    const c = cv.getContext('2d'), R = cv.width / 2, seg = 2 * Math.PI / 37;
+    c.translate(R, R);
+    ORDER.forEach((n, i) => {
+      const a = i * seg - Math.PI / 2;
+      c.beginPath(); c.moveTo(0, 0); c.arc(0, 0, R - 4, a - seg / 2, a + seg / 2); c.closePath();
+      c.fillStyle = { red: '#b82a32', black: '#151a18', green: '#128a4a' }[color(n)]; c.fill();
+      c.strokeStyle = '#2a3631'; c.lineWidth = 1; c.stroke();
+      c.save(); c.rotate(a + Math.PI / 2); c.fillStyle = '#fff';
+      c.font = 'bold 15px system-ui'; c.textAlign = 'center'; c.fillText(n, 0, -R + 34); c.restore();
+    });
+    c.beginPath(); c.arc(0, 0, R - 4, 0, 7); c.strokeStyle = '#d4af37'; c.lineWidth = 5; c.stroke();
+    c.beginPath(); c.arc(0, 0, R * .5, 0, 7); c.fillStyle = '#0b0f0e'; c.fill(); c.strokeStyle = '#d4af37'; c.lineWidth = 3; c.stroke();
+    c.beginPath(); c.arc(0, 0, R * .08, 0, 7); c.fillStyle = '#d4af37'; c.fill();
+  }
+
+  function render(root) {
+    root.innerHTML = `
+      <h1>🎡 Roleta</h1>
+      <p class="sub">Roleta europeia: 37 números (0–36). Vantagem da casa de 2,7%, como na roleta real.</p>
+      <div class="rl">
+        <div>
+          <div class="stage" id="stage">
+            <div class="wheel" id="wheel"><canvas width="400" height="400"></canvas></div>
+            <div class="ballwrap" id="bw"><i class="ball"></i></div>
+            <div class="pointer"></div>
+          </div>
+          <div class="res" id="res">Escolha sua aposta e gire.</div>
+          <div class="last" id="last"></div>
+        </div>
+        <div>
+          <div class="picks" id="picks">${PICKS.map(p => `<button data-t="${p[0]}">${p[1]}<small>${p[2]}x</small></button>`).join('')}</div>
+          <div class="numgrid" id="ng">${ORDER.slice().sort((a, b) => a - b).map(n => `<button class="${color(n)}" data-n="${n}">${n}</button>`).join('')}</div>
+          <div id="bp"></div>
+        </div>
+      </div>`;
+    drawWheel(root.querySelector('canvas'));
+    const $ = id => root.querySelector('#' + id);
+    const wheel = $('wheel'), bw = $('bw'), ball = bw.querySelector('.ball'), stage = $('stage'), res = $('res');
+    const reduced = matchMedia('(prefers-reduced-motion:reduce)').matches;
+    let pick = null, busy = false, wheelRot = 0, panel;
+
+    function renderLast() {
+      const l = CS.History.list().filter(h => h.game === 'Roleta' && h.extra).slice(0, 14);
+      $('last').innerHTML = l.map(h => `<span class="num ${color(h.extra.n)}">${h.extra.n}</span>`).join('');
+    }
+    function choose(p) {
+      if (busy) return;
+      pick = p;
+      root.querySelectorAll('#picks button').forEach(b => b.classList.toggle('on', p.type !== 'num' && b.dataset.t === p.type));
+      root.querySelectorAll('#ng button').forEach(b => b.classList.toggle('on', p.type === 'num' && +b.dataset.n === p.n));
+      panel.update();
+    }
+    root.querySelectorAll('#picks button').forEach(b => b.onclick = () => choose({ type: b.dataset.t }));
+    root.querySelectorAll('#ng button').forEach(b => b.onclick = () => choose({ type: 'num', n: +b.dataset.n }));
+
+    panel = CS.BetPanel.mount($('bp'), {
+      mult: () => mult(pick),
+      onPlay: bet => {
+        if (busy) return;
+        if (!pick) { CS.toast('Escolha uma aposta na roleta.'); return; }
+        if (!CS.Bank.place(bet)) return;
+        busy = true; panel.setBusy(true);
+        stage.className = 'stage'; res.className = 'res'; res.textContent = 'A bola está girando…';
+        const n = CS.RNG.int(37), k = ORDER.indexOf(n), segD = 360 / 37, dur = reduced ? 1200 : 5200;
+        bw.style.transition = 'none'; ball.style.transition = 'none';
+        bw.style.transform = 'rotate(0deg)'; ball.style.top = '1%';
+        void bw.offsetWidth;
+        wheelRot = Math.ceil(wheelRot / 360) * 360 + 360 * 5 + ((360 - k * segD) % 360);
+        wheel.style.transition = `transform ${dur}ms cubic-bezier(.12,.62,.15,1)`;
+        wheel.style.transform = `rotate(${wheelRot}deg)`;
+        bw.style.transition = `transform ${dur}ms cubic-bezier(.2,.65,.25,1)`;
+        bw.style.transform = `rotate(${-360 * 7}deg)`;
+        ball.style.transition = `top 600ms ease ${dur - 900}ms`;
+        ball.style.top = '7.2%';
+        const p = pick;
+        setTimeout(() => {
+          const won = wins(p, n), payout = won ? bet * mult(p) : 0;
+          const profit = CS.Bank.settle({ game: 'Roleta', pick: label(p), bet, payout, extra: { n } });
+          stage.classList.add(won ? 'win' : 'lose');
+          res.className = 'res pop ' + (won ? 'pos' : 'neg');
+          res.innerHTML = `<span class="num ${color(n)}">${n}</span><span>${won ? 'VOCÊ GANHOU ' : 'VOCÊ PERDEU '}${CS.sfmt(profit)}</span>`;
+          busy = false; panel.setBusy(false); renderLast();
+        }, dur + 100);
+      }
+    });
+    renderLast();
+  }
+  return { render };
+})();
+
+CS.U = {
+  sleep: ms => new Promise(r => setTimeout(r, ms)),
+  shuffle(a) { for (let i = a.length - 1; i > 0; i--) { const j = CS.RNG.int(i + 1); [a[i], a[j]] = [a[j], a[i]]; } return a; },
+  SU: ['♠', '♥', '♦', '♣'], RK: ['2','3','4','5','6','7','8','9','10','J','Q','K','A'],
+  deck() { const d = []; for (let s = 0; s < 4; s++) for (let r = 0; r < 13; r++) d.push({ r, s }); return this.shuffle(d); },
+  card(c, hide) { return hide ? '<div class="pcard back"></div>' : `<div class="pcard ${c.s === 1 || c.s === 2 ? 'r' : ''}"><b>${this.RK[c.r]}</b><i>${this.SU[c.s]}</i></div>`; },
+  res(el, profit, pre) {
+    el.className = 'res pop ' + (profit > 0 ? 'pos' : profit < 0 ? 'neg' : '');
+    el.innerHTML = (pre || '') + '<span>' + (profit > 0 ? 'VOCÊ GANHOU ' + CS.sfmt(profit) : profit < 0 ? 'VOCÊ PERDEU ' + CS.sfmt(profit) : 'EMPATE — aposta devolvida') + '</span>';
+  },
+  layout(root, title, sub, stage, controls) {
+    root.innerHTML = `<h1>${title}</h1><p class="sub">${sub}</p><div class="rl"><div>${stage}</div><div>${controls || ''}<div id="bp"></div></div></div>`;
+    return s => root.querySelector(s);
+  },
+  spin(wheel, bw, ball, st, k, segD, dur) {
+    bw.style.transition = 'none'; ball.style.transition = 'none'; bw.style.transform = 'rotate(0deg)'; ball.style.top = '1%'; void bw.offsetWidth;
+    st.rot = Math.ceil(st.rot / 360) * 360 + 1800 + ((360 - k * segD) % 360);
+    wheel.style.transition = `transform ${dur}ms cubic-bezier(.12,.62,.15,1)`; wheel.style.transform = `rotate(${st.rot}deg)`;
+    bw.style.transition = `transform ${dur}ms cubic-bezier(.2,.65,.25,1)`; bw.style.transform = 'rotate(-2520deg)';
+    ball.style.transition = `top 600ms ease ${dur - 900}ms`; ball.style.top = '7.2%';
+  },
+  picks(root, sel, on) { root.querySelectorAll(sel).forEach(b => b.onclick = () => on(b)); },
+  mark(root, sel, fn) { root.querySelectorAll(sel).forEach(b => b.classList.toggle('on', fn(b))); }
+};
+
+CS.Games = {
+  /* ---------- JOGO DA BOLA: 15 casas (7 vermelhas, 7 pretas, 1 verde) ---------- */
+  ball(root) {
+    const U = CS.U, C = { red: '#b82a32', black: '#151a18', green: '#128a4a' }, col = i => i === 0 ? 'green' : i % 2 ? 'red' : 'black';
+    const grad = 'conic-gradient(from -12deg,' + Array.from({ length: 15 }, (_, i) => `${C[col(i)]} ${i * 24}deg ${(i + 1) * 24}deg`).join(',') + ')';
+    const M = { red: 2, black: 2, green: 14 };
+    const $ = U.layout(root, '⚪ Jogo da Bola', 'Roda de 15 casas: 7 vermelhas, 7 pretas e 1 verde. Pagamentos proporcionais às chances (≈93% de retorno).',
+      `<div class="stage" id="stage"><div class="wheel gold" id="wheel" style="background:${grad}"><div class="hub"></div></div><div class="ballwrap" id="bw"><i class="ball"></i></div><div class="pointer"></div></div><div class="res" id="res">Escolha uma cor e gire.</div>`,
+      `<div class="picks" id="picks"><button data-t="red">🔴 Vermelho<small>2x</small></button><button data-t="black">⚫ Preto<small>2x</small></button><button data-t="green" style="grid-column:span 2">🟢 Verde<small>14x</small></button></div>`);
+    let pick = null, busy = false; const st = { rot: 0 };
+    const panel = CS.BetPanel.mount($('#bp'), { mult: () => pick ? M[pick] : 0, onPlay: bet => {
+      if (busy) return; if (!pick) { CS.toast('Escolha uma cor.'); return; } if (!CS.Bank.place(bet)) return;
+      busy = true; panel.setBusy(true); $('#stage').className = 'stage'; $('#res').className = 'res'; $('#res').textContent = 'A bola está girando…';
+      const k = CS.RNG.int(15), c = col(k), dur = 4500, p = pick;
+      U.spin($('#wheel'), $('#bw'), $('#bw').firstChild, st, k, 24, dur);
+      setTimeout(() => {
+        const won = c === p, profit = CS.Bank.settle({ game: 'Jogo da Bola', pick: { red: 'Vermelho', black: 'Preto', green: 'Verde' }[p], bet, payout: won ? bet * M[p] : 0, extra: null });
+        $('#stage').classList.add(won ? 'win' : 'lose');
+        U.res($('#res'), profit, `<span class="num ${c}">${{ red: '🔴', black: '⚫', green: '🟢' }[c]}</span>`);
+        busy = false; panel.setBusy(false);
+      }, dur + 100);
+    } });
+    U.picks(root, '#picks button', b => { if (busy) return; pick = b.dataset.t; U.mark(root, '#picks button', x => x === b); panel.update(); });
+  },
+
+  /* ---------- DADOS: 2 dados, soma 2–12 ---------- */
+  dice(root) {
+    const U = CS.U, F = '⚀⚁⚂⚃⚄⚅', cnt = s => 6 - Math.abs(s - 7);
+    const mult = p => !p ? 0 : p.t === 'n' ? Math.floor(3400 / cnt(p.n)) / 100 : 2.2;
+    const $ = U.layout(root, '🎲 Dados', 'Dois dados. Menor = 2–6, Maior = 8–12 (o 7 não paga). Ou aposte em uma soma exata.',
+      `<div class="table" style="text-align:center"><div><span class="die" id="d1">⚀</span><span class="die" id="d2">⚀</span></div><div class="res" id="res">Escolha menor, maior ou um número.</div></div>`,
+      `<div class="picks" id="picks"><button data-t="low">MENOR (2–6)<small>2.2x</small></button><button data-t="high">MAIOR (8–12)<small>2.2x</small></button></div>
+       <div class="numgrid w" id="ng">${Array.from({ length: 11 }, (_, i) => i + 2).map(n => `<button data-n="${n}">${n}<small>${mult({ t: 'n', n })}x</small></button>`).join('')}</div>`);
+    let pick = null, busy = false;
+    const panel = CS.BetPanel.mount($('#bp'), { mult: () => mult(pick), onPlay: async bet => {
+      if (busy) return; if (!pick) { CS.toast('Escolha uma aposta.'); return; } if (!CS.Bank.place(bet)) return;
+      busy = true; panel.setBusy(true); const p = pick, d1 = $('#d1'), d2 = $('#d2'); $('#res').className = 'res'; $('#res').textContent = 'Rolando…';
+      d1.classList.add('rolling'); d2.classList.add('rolling');
+      const iv = setInterval(() => { d1.textContent = F[CS.RNG.int(6)]; d2.textContent = F[CS.RNG.int(6)]; }, 90);
+      const a = CS.RNG.int(6) + 1, b = CS.RNG.int(6) + 1, s = a + b;
+      await U.sleep(1400); clearInterval(iv); d1.textContent = F[a - 1]; d2.textContent = F[b - 1]; d1.classList.remove('rolling'); d2.classList.remove('rolling');
+      const won = p.t === 'low' ? s <= 6 : p.t === 'high' ? s >= 8 : s === p.n;
+      const profit = CS.Bank.settle({ game: 'Dados', pick: p.t === 'low' ? 'Menor' : p.t === 'high' ? 'Maior' : 'Soma ' + p.n, bet, payout: won ? Math.floor(bet * mult(p) * 100) / 100 : 0, extra: null });
+      U.res($('#res'), profit, `<span class="num black">${s}</span>`); busy = false; panel.setBusy(false);
+    } });
+    U.picks(root, '#picks button', b => { if (busy) return; pick = { t: b.dataset.t }; U.mark(root, '#picks button', x => x === b); U.mark(root, '#ng button', () => false); panel.update(); });
+    U.picks(root, '#ng button', b => { if (busy) return; pick = { t: 'n', n: +b.dataset.n }; U.mark(root, '#ng button', x => x === b); U.mark(root, '#picks button', () => false); panel.update(); });
+  },
+
+  /* ---------- HIGH CARD ---------- */
+  highcard(root) {
+    const U = CS.U;
+    const $ = U.layout(root, '🂡 High Card', 'A carta maior vence e paga 2x. Ás é a mais alta. Em caso de empate, a casa vence.',
+      `<div class="table"><div class="duo"><div><div class="lbl">SUA CARTA</div><div id="c1"><div class="pcard back"></div></div></div><div><div class="lbl">CARTA DA CASA</div><div id="c2"><div class="pcard back"></div></div></div></div><div class="res" id="res">Faça sua aposta e clique em JOGAR.</div></div>`);
+    let busy = false;
+    const panel = CS.BetPanel.mount($('#bp'), { mult: () => 2, onPlay: async bet => {
+      if (busy || !CS.Bank.place(bet)) return; busy = true; panel.setBusy(true);
+      const d = U.deck(), me = d.pop(), hs = d.pop(); $('#res').className = 'res'; $('#res').textContent = 'Revelando…';
+      $('#c1').innerHTML = '<div class="pcard back"></div>'; $('#c2').innerHTML = '<div class="pcard back"></div>';
+      await U.sleep(700); $('#c1').innerHTML = U.card(me); await U.sleep(800); $('#c2').innerHTML = U.card(hs); await U.sleep(400);
+      const won = me.r > hs.r, tie = me.r === hs.r;
+      const profit = CS.Bank.settle({ game: 'High Card', pick: `${U.RK[me.r]} x ${U.RK[hs.r]}`, bet, payout: won ? bet * 2 : 0, extra: null });
+      U.res($('#res'), profit, tie ? '<b>Empate: a casa vence</b> ' : ''); busy = false; panel.setBusy(false);
+    } });
+  },
+
+  /* ---------- SLOTS ---------- */
+  slots(root) {
+    const U = CS.U, SY = [['🍒', 30, 5], ['🍋', 25, 8], ['🍊', 20, 12], ['🔔', 12, 25], ['💎', 8, 60], ['7️⃣', 5, 200]];
+    const pickSym = () => { let r = CS.RNG.int(100); for (const s of SY) { if (r < s[1]) return s; r -= s[1]; } return SY[0]; };
+    const $ = U.layout(root, '🎰 Slots', 'Três rolos. Três símbolos iguais pagam o prêmio da tabela; dois iguais devolvem a aposta.',
+      `<div class="table"><div class="reels" id="reels"><div class="reel">🍒</div><div class="reel">🍋</div><div class="reel">💎</div></div><div class="res" id="res">Faça sua aposta e clique em JOGAR.</div></div>
+       <div class="card paytable">🍒🍒🍒 5x · 🍋🍋🍋 8x · 🍊🍊🍊 12x · 🔔🔔🔔 25x · 💎💎💎 60x · 7️⃣7️⃣7️⃣ 200x (jackpot virtual) · dois iguais: aposta devolvida</div>`);
+    let busy = false;
+    const panel = CS.BetPanel.mount($('#bp'), { mult: () => 0, onPlay: async bet => {
+      if (busy || !CS.Bank.place(bet)) return; busy = true; panel.setBusy(true);
+      const reels = [...root.querySelectorAll('.reel')], out = [pickSym(), pickSym(), pickSym()], stopped = [0, 0, 0];
+      reels.forEach(r => { r.classList.add('spin'); r.classList.remove('stop'); }); $('#res').className = 'res'; $('#res').textContent = 'Girando…';
+      const iv = setInterval(() => reels.forEach((r, i) => { if (!stopped[i]) r.textContent = SY[CS.RNG.int(6)][0]; }), 70);
+      for (let i = 0; i < 3; i++) { await U.sleep(i ? 550 : 1000); stopped[i] = 1; reels[i].textContent = out[i][0]; reels[i].classList.remove('spin'); reels[i].classList.add('stop'); }
+      clearInterval(iv);
+      const [a, b, c] = out, three = a === b && b === c, pair = a === b || b === c || a === c;
+      const payout = three ? bet * a[2] : pair ? bet : 0;
+      const profit = CS.Bank.settle({ game: 'Slots', pick: out.map(s => s[0]).join(' '), bet, payout, extra: null });
+      U.res($('#res'), profit, three && a[0] === '7️⃣' ? '<b>🎉 JACKPOT VIRTUAL!</b> ' : ''); busy = false; panel.setBusy(false);
+    } });
+  },
+
+  /* ---------- BLACKJACK ---------- */
+  blackjack(root) {
+    const U = CS.U;
+    const $ = U.layout(root, '🃏 Blackjack', 'Chegue o mais perto de 21 sem estourar. Blackjack paga 3:2, o dealer para no 17, sem split.',
+      `<div class="table"><div class="lbl">DEALER <b id="dv"></b></div><div class="hand" id="dh"></div><div class="lbl">SUA MÃO <b id="pv"></b></div><div class="hand" id="ph"></div><div class="res" id="res">Faça sua aposta e clique em JOGAR.</div>
+       <div class="acts"><button class="btn2" id="hit" disabled>PEDIR</button><button class="btn2" id="stand" disabled>PARAR</button><button class="btn2" id="dbl" disabled>DOBRAR</button></div></div>`);
+    const val = h => { let t = 0, a = 0; h.forEach(c => { t += c.r === 12 ? 11 : c.r >= 9 ? 10 : c.r + 2; if (c.r === 12) a++; }); while (t > 21 && a) { t -= 10; a--; } return t; };
+    let st = null, closed = false, panel;
+    const add = (id, c, hide) => $('#' + id).insertAdjacentHTML('beforeend', U.card(c, hide));
+    const upd = hide => { $('#dv').textContent = st.d.length ? val(hide ? [st.d[0]] : st.d) : ''; $('#pv').textContent = st.p.length ? val(st.p) : ''; };
+    const reveal = () => { const el = $('#dh').children[1]; if (el) el.outerHTML = U.card(st.d[1]); };
+    const acts = on => { $('#hit').disabled = !on; $('#stand').disabled = !on; $('#dbl').disabled = !(on && st.p.length === 2 && CS.Bank.balance >= st.bet); };
+    function finish(kind) {
+      if (!st || st.done) return; st.done = true;
+      const pay = { bj: st.bet * 2.5, dbj: 0, push: st.bet, bust: 0, win: st.bet * 2, lose: 0 }[kind];
+      const msg = { bj: 'BLACKJACK!', dbj: 'Dealer fez Blackjack', push: 'Empate', bust: 'ESTOUROU', win: '', lose: '' }[kind];
+      const profit = CS.Bank.settle({ game: 'Blackjack', pick: `Você ${val(st.p)} x Dealer ${val(st.d)}`, bet: st.bet, payout: pay, extra: null });
+      U.res($('#res'), profit, msg ? `<b>${msg}</b> ` : ''); st = null; acts(false) || 0; panel.setBusy(false);
+    }
+    async function draw(who, id, hide) { const c = st.deck.pop(); st[who].push(c); add(id, c, hide); upd(true); await U.sleep(380); return !closed; }
+    async function stand() {
+      acts(false); reveal(); upd(false); await U.sleep(500); if (closed) return;
+      while (val(st.d) < 17) { const c = st.deck.pop(); st.d.push(c); add('dh', c); upd(false); await U.sleep(550); if (closed) return; }
+      const p = val(st.p), d = val(st.d); finish(d > 21 || p > d ? 'win' : p === d ? 'push' : 'lose');
+    }
+    async function hit() { acts(false); if (!await draw('p', 'ph')) return; const v = val(st.p); if (v > 21) { reveal(); upd(false); return finish('bust'); } if (v === 21) return stand(); acts(true); }
+    async function dbl() {
+      if (!CS.Bank.place(st.bet)) return; st.bet *= 2; acts(false); if (!await draw('p', 'ph')) return;
+      if (val(st.p) > 21) { reveal(); upd(false); return finish('bust'); } stand();
+    }
+    panel = CS.BetPanel.mount($('#bp'), { mult: () => 2, onPlay: async bet => {
+      if (st || !CS.Bank.place(bet)) return; panel.setBusy(true);
+      st = { deck: U.deck(), p: [], d: [], bet, done: false }; $('#dh').innerHTML = ''; $('#ph').innerHTML = ''; $('#res').className = 'res'; $('#res').textContent = '';
+      for (const w of ['p', 'd', 'p', 'd']) { if (!await draw(w, w === 'p' ? 'ph' : 'dh', w === 'd' && st.d.length === 1)) return; }
+      const pb = val(st.p) === 21, db = val(st.d) === 21;
+      if (pb || db) { reveal(); upd(false); return finish(pb && db ? 'push' : pb ? 'bj' : 'dbj'); }
+      acts(true);
+    } });
+    $('#hit').onclick = hit; $('#stand').onclick = stand; $('#dbl').onclick = dbl;
+    CS.cleanups.push(() => { closed = true; if (st && !st.done) { st.done = true; CS.Bank.settle({ game: 'Blackjack', pick: 'Abandonou a mão', bet: st.bet, payout: 0, extra: null }); } });
+  },
+
+  /* ---------- CRASH ---------- */
+  crash(root) {
+    const U = CS.U, rate = .00025, mult = t => Math.exp(rate * t);
+    const $ = U.layout(root, '🚀 Crash', 'O multiplicador sobe até crashar em um ponto sorteado. Retire antes para garantir o ganho (≈96% de retorno).',
+      `<div class="crashbox"><canvas id="cv" width="640" height="340"></canvas><div class="mx" id="mx">1.00x</div></div><div class="res" id="res">Faça sua aposta e clique em JOGAR.</div><button class="play" id="co" disabled>RETIRAR</button>`);
+    const cv = $('#cv'), mx = $('#mx'), co = $('#co'); let run = null, closed = false, panel;
+    function draw(t, m, dead) {
+      const c = cv.getContext('2d'), W = cv.width, H = cv.height, tm = Math.max(6000, t * 1.15), mm = Math.max(2, m * 1.2);
+      c.clearRect(0, 0, W, H); c.strokeStyle = '#1f2a26'; c.lineWidth = 1;
+      for (let i = 1; i < 5; i++) { const y = H - H * i / 5; c.beginPath(); c.moveTo(0, y); c.lineTo(W, y); c.stroke(); }
+      c.beginPath();
+      for (let i = 0; i <= 60; i++) { const tt = t * i / 60, x = tt / tm * W, y = H - (mult(tt) - 1) / (mm - 1) * H * .9 - 10; i ? c.lineTo(x, y) : c.moveTo(x, y); }
+      c.strokeStyle = dead ? '#e5484d' : '#2dff8a'; c.lineWidth = 4; c.stroke();
+      c.lineTo(t / tm * W, H); c.lineTo(0, H); c.fillStyle = dead ? 'rgba(229,72,77,.08)' : 'rgba(45,255,138,.08)'; c.fill();
+    }
+    function end() {
+      const r = run, cp = r.cp; draw(Math.log(cp) / rate, cp, true); mx.textContent = 'CRASH! ' + cp.toFixed(2) + 'x'; mx.classList.add('dead'); co.disabled = true;
+      if (!r.cashed) { const p = CS.Bank.settle({ game: 'Crash', pick: `Crash em ${cp.toFixed(2)}x`, bet: r.bet, payout: 0, extra: null }); U.res($('#res'), p); }
+      else $('#res').innerHTML += `<span style="color:var(--mut);font-size:14px">&nbsp;(crashou em ${cp.toFixed(2)}x)</span>`;
+      run = null; panel.setBusy(false);
+    }
+    const loop = now => {
+      if (closed || !run) return; const t = now - run.t0, m = mult(t);
+      if (m >= run.cp) return end();
+      draw(t, m); mx.textContent = m.toFixed(2) + 'x'; if (!run.cashed) co.textContent = 'RETIRAR ' + CS.fmt(Math.floor(run.bet * m * 100) / 100);
+      run.raf = requestAnimationFrame(loop);
+    };
+    panel = CS.BetPanel.mount($('#bp'), { mult: () => 0, onPlay: bet => {
+      if (run || !CS.Bank.place(bet)) return; panel.setBusy(true);
+      const u = CS.RNG.int(1000000) / 1e6, cp = Math.min(1000, Math.max(1, Math.floor(0.96 / (1 - u) * 100) / 100));
+      run = { bet, cp, t0: performance.now(), cashed: false }; mx.classList.remove('dead'); $('#res').className = 'res'; $('#res').textContent = 'Em andamento…'; co.disabled = false;
+      run.raf = requestAnimationFrame(loop);
+    } });
+    co.onclick = () => {
+      if (!run || run.cashed) return; const m = Math.floor(mult(performance.now() - run.t0) * 100) / 100; if (m >= run.cp) return;
+      run.cashed = true; co.disabled = true; co.textContent = 'RETIRADO';
+      const p = CS.Bank.settle({ game: 'Crash', pick: `Retirou em ${m.toFixed(2)}x`, bet: run.bet, payout: Math.floor(run.bet * m * 100) / 100, extra: null });
+      U.res($('#res'), p, `<b>${m.toFixed(2)}x</b> `);
+    };
+    CS.cleanups.push(() => { closed = true; if (run) { cancelAnimationFrame(run.raf); if (!run.cashed) CS.Bank.settle({ game: 'Crash', pick: 'Abandonou a rodada', bet: run.bet, payout: 0, extra: null }); run = null; } });
+  },
+
+  /* ---------- ESPORTES SIMULADOS (partidas 100% fictícias) ---------- */
+  sports(root) {
+    const U = CS.U;
+    const CATS = [['futebol', '⚽', 'Futebol'], ['basquete', '🏀', 'Basquete'], ['lutas', '🥊', 'Lutas'], ['corridas', '🏎️', 'Corridas'], ['esports', '🎮', 'eSports']];
+    const POOL = {
+      futebol: ['Tubarões FC', 'Dragões FC', 'Falcões FC', 'Lobos FC', 'Panteras FC', 'Titãs FC', 'Cometas FC', 'Guardiões FC'],
+      basquete: ['Raios', 'Vikings', 'Pumas', 'Gigantes', 'Corvos', 'Faróis'],
+      lutas: ['Kael “Trovão”', 'Dante “Aço”', 'Rhuan “Fúria”', 'Iago “Rocha”', 'Zeca “Víbora”', 'Bruno “Gelo”'],
+      corridas: ['Neo Valdez', 'Luca Ferro', 'Ayla Prado', 'Max Torres', 'Iris Bolt', 'Theo Strada'],
+      esports: ['Void Five', 'Nova Gaming', 'Byte Wolves', 'Pixel Kings', 'Glitch Unit', 'Neon Crew']
+    };
+    const mk = cat => {
+      const k = cat === 'corridas' ? 4 : 2, names = U.shuffle(POOL[cat].slice()).slice(0, k), w = names.map(() => 1 + CS.RNG.int(100) / 50);
+      let ps;
+      if (cat === 'futebol') { const s = w[0] + w[1]; ps = [.74 * w[0] / s, .26, .74 * w[1] / s]; names.splice(1, 0, 'Empate'); }
+      else { const s = w.reduce((a, b) => a + b); ps = w.map(x => x / s); }
+      const title = cat === 'corridas' ? 'GP ' + ['Neon', 'Aurora', 'Vulcão', 'Costa Azul'][CS.RNG.int(4)] : names[0] + ' vs ' + names[names.length - 1];
+      return { title, opts: names.map((n, i) => ({ n, p: ps[i], odd: Math.max(1.05, Math.floor(93 / ps[i]) / 100) })) };
+    };
+    const gen = cat => Array.from({ length: cat === 'corridas' ? 2 : 4 }, () => mk(cat));
+    let cat = 'futebol', ms = gen(cat), pick = null, busy = false;
+    const $ = U.layout(root, '⚽ Esportes simulados', 'Partidas fictícias, sem nenhum resultado real. As odds já incluem uma margem da casa de 7%.',
+      `<div class="tabs" id="tabs"></div><div id="ms"></div><div class="bar"><i id="bar"></i></div><div class="res" id="res">Escolha uma opção e aposte.</div>`);
+    function draw() {
+      $('#tabs').innerHTML = CATS.map(c => `<button data-c="${c[0]}" class="${c[0] === cat ? 'on' : ''}">${c[1]} ${c[2]}</button>`).join('');
+      $('#ms').innerHTML = ms.map((m, mi) => `<div class="card match"><h3>${m.title}</h3><div class="opts">${m.opts.map((o, oi) =>
+        `<button data-m="${mi}" data-o="${oi}" class="${pick && pick.m === mi && pick.o === oi ? 'on' : ''}">${o.n}<b>${o.odd.toFixed(2)}</b></button>`).join('')}</div></div>`).join('');
+      U.picks(root, '#tabs button', b => { if (busy) return; cat = b.dataset.c; ms = gen(cat); pick = null; draw(); panel.update(); });
+      U.picks(root, '#ms .opts button', b => { if (busy) return; pick = { m: +b.dataset.m, o: +b.dataset.o }; draw(); panel.update(); });
+    }
+    const panel = CS.BetPanel.mount($('#bp'), { mult: () => pick ? ms[pick.m].opts[pick.o].odd : 0, onPlay: async bet => {
+      if (busy) return; if (!pick) { CS.toast('Escolha uma opção.'); return; } if (!CS.Bank.place(bet)) return;
+      busy = true; panel.setBusy(true); const m = ms[pick.m], o = m.opts[pick.o], bar = $('#bar');
+      $('#res').className = 'res'; $('#res').textContent = 'Disputa ao vivo…'; bar.style.transition = 'none'; bar.style.width = '0'; void bar.offsetWidth; bar.style.transition = 'width 2.6s linear'; bar.style.width = '100%';
+      const r = CS.RNG.int(1000000) / 1e6; let acc = 0, win = m.opts.length - 1;
+      for (let i = 0; i < m.opts.length; i++) { acc += m.opts[i].p; if (r < acc) { win = i; break; } }
+      await U.sleep(2700);
+      const won = win === pick.o, name = CATS.find(c => c[0] === cat)[2];
+      const profit = CS.Bank.settle({ game: 'Esportes', pick: `${name}: ${o.n} @ ${o.odd.toFixed(2)}`, bet, payout: won ? Math.floor(bet * o.odd * 100) / 100 : 0, extra: null });
+      U.res($('#res'), profit, `<b>${m.opts[win].n}</b> ` ); ms = gen(cat); pick = null; busy = false; draw(); panel.setBusy(false);
+    } });
+    draw();
+  }
+};
+
+CS.toast = msg => {
+  const t = document.createElement('div'); t.className = 'toast'; t.textContent = msg;
+  document.getElementById('toasts').appendChild(t); setTimeout(() => t.remove(), 2800);
+};
+
+CS.Pages = (() => {
+  const GAMES = [
+    { id: 'roulette', n: 'Roleta', i: '🎡', cat: 'cassino', d: 'Vermelho, preto, número e mais', ok: 1 },
+    { id: 'slots', n: 'Slots', i: '🎰', cat: 'cassino', d: '3 rolos e jackpot virtual', ok: 1 },
+    { id: 'crash', n: 'Crash', i: '🚀', cat: 'cassino', d: 'Retire antes do crash', ok: 1 },
+    { id: 'blackjack', n: 'Blackjack', i: '🃏', cat: 'cartas', d: 'Chegue perto de 21', ok: 1 },
+    { id: 'highcard', n: 'High Card', i: '🂡', cat: 'cartas', d: 'A carta mais alta vence', ok: 1 },
+    { id: 'sports', n: 'Partidas simuladas', i: '⚽', cat: 'esportes', d: 'Futebol, basquete, lutas, corridas e eSports', ok: 1 },
+    { id: 'dice', n: 'Dados', i: '🎲', cat: 'rapidos', d: 'Menor, maior ou número', ok: 1 },
+    { id: 'ball', n: 'Jogo da Bola', i: '⚪', cat: 'rapidos', d: 'Vermelho, preto ou verde', ok: 1 }
+  ];
+  const CATS = { cassino: '🎰 Cassino', cartas: '🃏 Cartas', esportes: '⚽ Esportes', rapidos: '🎡 Jogos rápidos' };
+
+  function lobby(cats) {
+    return cats.map(c => `<h2>${CATS[c]}</h2><div class="grid">` + GAMES.filter(g => g.cat === c).map(g =>
+      g.ok ? `<a class="card game" href="#" data-go="${g.id}"><span class="ic">${g.i}</span><div><b>${g.n}</b><small>${g.d}</small></div><span class="tag go">Jogar</span></a>`
+           : `<div class="card game lock"><span class="ic">${g.i}</span><div><b>${g.n}</b><small>${g.d}</small></div><span class="tag">Fase ${g.ph}</span></div>`
+    ).join('') + '</div>').join('');
+  }
+
+  const stat = (l, v, cls = '') => `<div class="card stat"><small>${l}</small><b class="${cls}">${v}</b></div>`;
+  const net = s => s.won - s.lost;
+
+  function home(el) {
+    const d = CS.Save.data, s = d.stats, n = net(s);
+    el.innerHTML = `
+      <div class="hero"><small>BANCA</small><div class="big">${CS.fmt(d.balance)}</div></div>
+      <div class="grid">
+        ${stat('Lucro / prejuízo', CS.sfmt(n), n >= 0 ? 'pos' : 'neg')}
+        ${stat('Maior banca', CS.fmt(d.peak))}
+        ${stat('Total apostado', CS.fmt(s.bet))}
+        ${stat('Total ganho', CS.fmt(s.won), 'pos')}
+        ${stat('Total perdido', CS.fmt(s.lost), 'neg')}
+        ${stat('Partidas', s.games)}
+      </div>` + lobby(['cassino', 'cartas', 'esportes', 'rapidos']);
+  }
+
+  const catPage = (title, cats) => el => { el.innerHTML = `<h1>${title}</h1><p class="sub">Escolha um jogo.</p>` + lobby(cats); };
+
+  function history(el) {
+    const l = CS.History.list();
+    el.innerHTML = `<h1>Histórico</h1><p class="sub">Últimas ${Math.min(l.length, 300)} partidas.</p>` +
+      (l.length ? l.map(h => {
+        const w = h.profit > 0;
+        return `<div class="hrow"><span class="dot">${w ? '🟢' : h.profit === 0 ? '⚪' : '🔴'}</span>
+          <div class="m"><b>${w ? 'Vitória' : h.profit === 0 ? 'Empate' : 'Derrota'}</b> — ${h.game}: ${h.pick}${h.extra ? ` (caiu ${h.extra.n})` : ''}
+          <small>Aposta: ${CS.fmt(h.bet)} · ${new Date(h.t).toLocaleString('pt-BR')}</small></div>
+          <div class="v ${h.profit < 0 ? 'neg' : 'pos'}">${CS.sfmt(h.profit)}</div></div>`;
+      }).join('') : '<div class="card">Nenhuma partida ainda. Que tal testar a roleta?</div>');
+  }
+
+  function stats(el) {
+    const d = CS.Save.data, s = d.stats;
+    const fav = Object.entries(s.byGame).sort((a, b) => b[1] - a[1])[0];
+    el.innerHTML = `<h1>Estatísticas</h1><p class="sub">Gráficos em breve.</p><div class="grid">
+      ${stat('Total de partidas', s.games)}${stat('Vitórias', s.wins, 'pos')}${stat('Derrotas', s.losses, 'neg')}
+      ${stat('Taxa de vitória', s.games ? (s.wins / s.games * 100).toFixed(1) + '%' : '—')}
+      ${stat('Maior vitória', CS.fmt(s.maxWin), 'pos')}${stat('Maior derrota', CS.fmt(s.maxLoss), 'neg')}
+      ${stat('Maior aposta', CS.fmt(s.maxBet))}${stat('Maior banca', CS.fmt(d.peak))}
+      ${stat('Lucro total', CS.fmt(s.won), 'pos')}${stat('Prejuízo total', CS.fmt(s.lost), 'neg')}
+      ${stat('Jogo mais utilizado', fav ? `${fav[0]} (${fav[1]}x)` : '—')}</div>`;
+  }
+
+  function profile(el) {
+    el.innerHTML = `<h1>Perfil</h1><p class="sub">Seu progresso fica salvo neste navegador.</p>
+      <div class="card"><b>Resetar conta</b><p class="sub" style="margin:6px 0 14px">Apaga banca, histórico e estatísticas e volta para R$ 1.000 virtuais.</p>
+      <button class="btn-danger" id="rs">RESETAR CONTA</button></div>`;
+    const b = el.querySelector('#rs'); let armed = false;
+    b.onclick = () => {
+      if (!armed) { armed = true; b.textContent = 'CLIQUE DE NOVO PARA CONFIRMAR'; setTimeout(() => { armed = false; b.textContent = 'RESETAR CONTA'; }, 4000); return; }
+      CS.Save.reset(); CS.Bank.emit(); CS.toast('Conta resetada.'); CS.go('home');
+    };
+  }
+
+  const soon = (t, ph) => el => { el.innerHTML = `<h1>${t}</h1><div class="card" style="margin-top:14px">Em breve.</div>`; };
+
+  return {
+    home, cassino: catPage('Cassino', ['cassino', 'rapidos']), cartas: catPage('Cartas', ['cartas']), esportes: catPage('Esportes', ['esportes']),
+    history, stats, profile, roulette: CS.Roulette.render, slots: CS.Games.slots, crash: CS.Games.crash, blackjack: CS.Games.blackjack, highcard: CS.Games.highcard, dice: CS.Games.dice, ball: CS.Games.ball, sports: CS.Games.sports, esportes: CS.Games.sports,
+    achievements: soon('Conquistas', 4), ranking: soon('Ranking', 4)
+  };
+})();
+
+(() => {
+  const NAV = [['home','INÍCIO','🏠'],['cassino','CASSINO','🎰'],['cartas','CARTAS','🃏'],['esportes','ESPORTES','⚽'],
+    ['history','HISTÓRICO','🕘'],['stats','ESTATÍSTICAS','📊'],['achievements','CONQUISTAS','🏆'],['ranking','RANKING','👑'],['profile','PERFIL','👤']];
+  const nav = document.getElementById('nav'), view = document.getElementById('view');
+  nav.innerHTML = NAV.map(n => `<a href="#" data-go="${n[0]}" data-r="${n[0]}"><span>${n[2]}</span>${n[1]}</a>`).join('');
+
+  const top = document.getElementById('topbal'); let last = CS.Bank.balance;
+  const paint = () => {
+    top.textContent = CS.fmt(CS.Bank.balance);
+    if (CS.Bank.balance !== last) { const b = top.parentNode; b.classList.remove('flash'); void b.offsetWidth; b.classList.add('flash'); }
+    last = CS.Bank.balance;
+  };
+  CS.Bank.on(paint); paint();
+
+  CS.route = function () {
+    const r = CS.cur || 'home';
+    CS.cleanups.forEach(f => f()); CS.cleanups.length = 0;
+    const page = CS.Pages[r] || CS.Pages.home;
+    view.innerHTML = ''; page(view);
+    const active = { roulette: 'cassino', slots: 'cassino', crash: 'cassino', dice: 'cassino', ball: 'cassino', blackjack: 'cartas', highcard: 'cartas', sports: 'esportes' }[r] || r;
+    nav.querySelectorAll('a').forEach(a => a.classList.toggle('on', a.dataset.r === active));
+    window.scrollTo(0, 0);
+  };
+  CS.go = r => { CS.cur = r; CS.route(); };
+  document.addEventListener('click', e => { const a = e.target.closest('[data-go]'); if (a) { e.preventDefault(); CS.go(a.dataset.go); } });
+  CS.route();
+})();
+
+
+(() => {
+  const paint = () => {
+    const d = CS.Save.data, played = d.stats.games > 0, sb = document.getElementById('in-bal');
+    document.querySelectorAll('[data-enter]').forEach(b => { b.textContent = played ? 'CONTINUAR JOGANDO' : 'JOGAR AGORA'; });
+    sb.hidden = !played; if (played) sb.textContent = 'Sua banca: ' + CS.fmt(d.balance);
+  };
+  CS.enter = id => { document.body.classList.remove('intro'); CS.go(id || 'home'); };
+  CS.showIntro = () => { CS.cleanups.forEach(f => f()); CS.cleanups.length = 0; CS.go('home'); document.body.classList.add('intro'); paint(); scrollTo(0, 0); };
+  document.addEventListener('click', e => {
+    const p = e.target.closest('[data-play]'); if (p) return CS.enter(p.dataset.play);
+    if (e.target.closest('[data-enter]')) return CS.enter();
+    const s = e.target.closest('[data-scroll]'); if (s) return document.getElementById(s.dataset.scroll).scrollIntoView({ behavior: 'smooth' });
+    if (e.target.closest('.brand') && !document.body.classList.contains('intro')) CS.showIntro();
+  });
+  paint();
+})();
+</script></body></html>
