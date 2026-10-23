@@ -919,13 +919,15 @@ CS.Pages = (() => {
   ];
   let i = 0;
   const draw = () => { const s = STEPS[i]; g.innerHTML = `<div class="gbox"><div class="gdots">${STEPS.map((_, k) => `<i class="${k <= i ? 'on' : ''}"></i>`).join('')}</div><div class="e">${s.e}</div><h2>${s.t}</h2><p>${s.s}</p><button class="btn-big" data-g="y">${s.y}</button><button class="btn-line" data-g="n">${s.n}</button></div>`; };
-  const block = () => { set('session', 'kard-block', '1'); g.innerHTML = '<div class="gbox"><div class="e">🚫</div><h2>Volte quando fizer 18</h2><p>É tudo de mentirinha, mas a regra é séria. Até lá, que tal um jogo de tabuleiro?</p></div>'; };
+  const close = () => { g.classList.remove('on'); document.body.classList.remove('gated'); };
+  const once = () => { set('session', 'kard-once', '1'); g.innerHTML = '<div class="gbox"><div class="e">😏</div><h2>Vou deixar você entrar</h2><p>Mas só dessa vez.</p><button class="btn-big" data-g="go">Entrar</button></div>'; };
   const open = () => { document.body.classList.add('gated'); g.classList.add('on'); };
   g.addEventListener('click', e => {
     const b = e.target.closest('[data-g]'); if (!b) return;
-    if (b.dataset.g === 'n') return block();
+    if (b.dataset.g === 'go') return close();
+    if (b.dataset.g === 'n') return once();
     if (++i < STEPS.length) draw(); else { set('local', 'kard-18', '1'); g.classList.remove('on'); document.body.classList.remove('gated'); }
   });
-  if (get('session', 'kard-block')) { open(); block(); } else if (!get('local', 'kard-18')) { open(); draw(); }
+  if (!get('session', 'kard-once') && !get('local', 'kard-18')) { open(); draw(); }
 })();
 </script></body></html>
