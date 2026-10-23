@@ -156,6 +156,22 @@ body.intro #intro{display:block}
 .in-steps{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
 .in-foot{color:var(--mut);font-size:12px;text-align:center;margin-top:22px}
 @media(max-width:899px){.in-hero{grid-template-columns:1fr;padding-top:20px}.fan{height:260px}.fan .pcard{width:104px;height:150px;font-size:34px}.in-steps{grid-template-columns:1fr}}
+.mines{display:grid;grid-template-columns:repeat(5,1fr);gap:8px;max-width:420px;margin:0 auto}
+.cell{aspect-ratio:1;background:var(--panel2);border:1px solid var(--line);border-radius:12px;font-size:30px;display:grid;place-items:center}
+.cell:hover{border-color:var(--g)}.cell.gem{background:rgba(45,255,138,.14);border-color:var(--g);animation:pop .25s}
+.cell.bomb{background:rgba(229,72,77,.2);border-color:var(--red);animation:pop .25s}.cell.dim{opacity:.45}
+.chips .on{border-color:var(--g);color:var(--g)}
+.lane{display:flex;align-items:center;gap:8px;height:48px;border-bottom:1px dashed #1f2a26}
+.hn{width:26px;height:26px;flex:none;border-radius:50%;display:grid;place-items:center;font-size:12px;font-weight:800;color:#111}
+.run{position:relative;flex:1;height:100%;border-right:4px solid var(--gold)}
+.horse{position:absolute;top:50%;margin-top:-18px;left:0;font-size:30px;font-style:normal;line-height:36px;transform:scaleX(-1)}
+body.gated{overflow:hidden}
+#gate{position:fixed;inset:0;z-index:100;display:none;place-items:center;background:rgba(7,9,10,.97);padding:20px}
+#gate.on{display:grid}
+.gbox{max-width:420px;width:100%;text-align:center;background:var(--panel);border:1px solid var(--line);border-radius:18px;padding:30px 24px}
+.gbox .e{font-size:56px;line-height:1.1}.gbox h2{color:var(--tx);font-size:24px;margin:10px 0 6px}.gbox p{color:var(--mut);margin-bottom:22px}
+.gbox .btn-big,.gbox .btn-line{width:100%;margin-bottom:10px}
+.gdots{display:flex;gap:6px;justify-content:center;margin-bottom:14px}.gdots i{width:8px;height:8px;border-radius:50%;background:var(--line)}.gdots i.on{background:var(--g)}
 </style></head><body class="intro">
 <section id="intro">
 <div class="in-wrap">
@@ -175,9 +191,9 @@ body.intro #intro{display:block}
       <div class="chip">R$ 1.000</div>
     </div>
   </div>
-  <div class="in-stats"><div><b>8</b><span>jogos</span></div><div><b>R$ 1.000</b><span>de banca virtual para começar</span></div><div><b>R$ 0</b><span>em dinheiro real</span></div></div>
+  <div class="in-stats"><div><b>10</b><span>jogos</span></div><div><b>R$ 1.000</b><span>de banca virtual para começar</span></div><div><b>R$ 0</b><span>em dinheiro real</span></div></div>
   <h2 id="in-games">Escolha seu jogo</h2>
-  <div class="grid in-games"><button class="card game" data-play="roulette"><span class="ic">🎡</span><div><b>Roleta</b><small>Vermelho, preto, número e mais</small></div></button><button class="card game" data-play="blackjack"><span class="ic">🃏</span><div><b>Blackjack</b><small>Chegue perto de 21</small></div></button><button class="card game" data-play="slots"><span class="ic">🎰</span><div><b>Slots</b><small>3 rolos e jackpot virtual</small></div></button><button class="card game" data-play="crash"><span class="ic">🚀</span><div><b>Crash</b><small>Retire antes do crash</small></div></button><button class="card game" data-play="dice"><span class="ic">🎲</span><div><b>Dados</b><small>Menor, maior ou número</small></div></button><button class="card game" data-play="highcard"><span class="ic">🂡</span><div><b>High Card</b><small>A carta mais alta vence</small></div></button><button class="card game" data-play="ball"><span class="ic">⚪</span><div><b>Jogo da Bola</b><small>Vermelho, preto ou verde</small></div></button><button class="card game" data-play="sports"><span class="ic">⚽</span><div><b>Esportes simulados</b><small>Partidas 100% fictícias</small></div></button></div>
+  <div class="grid in-games"><button class="card game" data-play="roulette"><span class="ic">🎡</span><div><b>Roleta</b><small>Vermelho, preto, número e mais</small></div></button><button class="card game" data-play="blackjack"><span class="ic">🃏</span><div><b>Blackjack</b><small>Chegue perto de 21</small></div></button><button class="card game" data-play="slots"><span class="ic">🎰</span><div><b>Slots</b><small>3 rolos e jackpot virtual</small></div></button><button class="card game" data-play="crash"><span class="ic">🚀</span><div><b>Crash</b><small>Retire antes do crash</small></div></button><button class="card game" data-play="dice"><span class="ic">🎲</span><div><b>Dados</b><small>Menor, maior ou número</small></div></button><button class="card game" data-play="highcard"><span class="ic">🂡</span><div><b>High Card</b><small>A carta mais alta vence</small></div></button><button class="card game" data-play="ball"><span class="ic">⚪</span><div><b>Jogo da Bola</b><small>Vermelho, preto ou verde</small></div></button><button class="card game" data-play="sports"><span class="ic">⚽</span><div><b>Esportes simulados</b><small>Partidas 100% fictícias</small></div></button><button class="card game" data-play="mines"><span class="ic">💣</span><div><b>Minas</b><small>Ache os diamantes, fuja das minas</small></div></button><button class="card game" data-play="horses"><span class="ic">🐎</span><div><b>Corrida de cavalos</b><small>6 cavalos, 1 vencedor</small></div></button></div>
   <h2>Como funciona</h2>
   <div class="in-steps">
     <div class="card"><b>1. Receba a banca</b><p class="sub" style="margin:6px 0 0">Você começa com R$ 1.000 virtuais, salvos neste navegador.</p></div>
@@ -189,6 +205,7 @@ body.intro #intro{display:block}
   <p class="in-foot">KARD APOSTA é um jogo de simulação. Todas as apostas e valores são fictícios e não possuem valor monetário real. Não há depósito, saque nem conversão em dinheiro.</p>
 </div>
 </section>
+<div id="gate" role="dialog" aria-modal="true" aria-label="Aviso +18"></div>
 <nav id="nav" aria-label="Menu principal"></nav>
 <div class="main">
   <header class="top"><div class="brand">KARD <b>APOSTA</b></div><div class="topbal"><span>Banca</span><strong id="topbal">R$ 0,00</strong></div></header>
@@ -684,6 +701,77 @@ CS.Games = {
   }
 };
 
+/* ---------- MINAS: grade 5x5 ---------- */
+CS.Games.mines = root => {
+  const U = CS.U, mm = (k, m) => { let x = .96; for (let i = 0; i < k; i++) x *= (25 - i) / (25 - m - i); return x; };
+  const $ = U.layout(root, '💣 Minas', 'Abra casas seguras (💎) e retire antes de achar uma mina. Mais minas, maior o multiplicador (≈96% de retorno).',
+    `<div class="mines">${Array.from({ length: 25 }, (_, i) => `<button class="cell" aria-label="Casa ${i + 1}"></button>`).join('')}</div><div class="res" id="res">Faça sua aposta e clique em JOGAR.</div><button class="play" id="co" disabled>RETIRAR</button>`,
+    `<div class="lbl" style="margin-bottom:6px">Número de minas</div><div class="chips" id="mc">${[1, 3, 5, 10].map(n => `<button data-m="${n}" class="${n === 3 ? 'on' : ''}">${n}</button>`).join('')}</div>`);
+  let m = 3, g = null, panel; const cells = [...root.querySelectorAll('.cell')], co = $('#co');
+  const info = () => {
+    const k = g.open.size, x = mm(k, g.m); co.disabled = k === 0;
+    co.textContent = k ? `RETIRAR ${CS.fmt(Math.floor(g.bet * x * 100 + 1e-9) / 100)} (${x.toFixed(2)}x)` : 'RETIRAR';
+    $('#res').className = 'res'; $('#res').textContent = 'Próxima casa: ' + mm(k + 1, g.m).toFixed(2) + 'x';
+  };
+  function endRound(profit, pre) {
+    g.over = true;
+    cells.forEach((c, i) => { if (g.mines.has(i)) { if (!c.classList.contains('bomb')) { c.className = 'cell bomb dim'; c.textContent = '💣'; } } else if (!g.open.has(i)) { c.className = 'cell dim'; c.textContent = '💎'; } });
+    co.disabled = true; co.textContent = 'RETIRAR'; U.res($('#res'), profit, pre); g = null; panel.setBusy(false);
+  }
+  function cash() {
+    if (!g || g.over || !g.open.size) return; const k = g.open.size, x = mm(k, g.m);
+    const p = CS.Bank.settle({ game: 'Minas', pick: `${g.m} minas · ${k} 💎 · ${x.toFixed(2)}x`, bet: g.bet, payout: Math.floor(g.bet * x * 100 + 1e-9) / 100, extra: null });
+    endRound(p, `<b>${x.toFixed(2)}x</b> `);
+  }
+  cells.forEach((c, i) => c.onclick = () => {
+    if (!g) { CS.toast('Faça sua aposta e clique em JOGAR.'); return; }
+    if (g.over || g.open.has(i)) return;
+    if (g.mines.has(i)) {
+      c.className = 'cell bomb'; c.textContent = '💣';
+      endRound(CS.Bank.settle({ game: 'Minas', pick: `${g.m} minas · explodiu após ${g.open.size} 💎`, bet: g.bet, payout: 0, extra: null }), '<b>BOOM!</b> '); return;
+    }
+    g.open.add(i); c.className = 'cell gem'; c.textContent = '💎';
+    if (g.open.size === 25 - g.m) cash(); else info();
+  });
+  co.onclick = cash;
+  U.picks(root, '#mc button', b => { if (g) return; m = +b.dataset.m; U.mark(root, '#mc button', x => x === b); });
+  panel = CS.BetPanel.mount($('#bp'), { mult: () => 0, onPlay: bet => {
+    if (g || !CS.Bank.place(bet)) return; panel.setBusy(true);
+    cells.forEach(c => { c.className = 'cell'; c.textContent = ''; });
+    g = { bet, m, mines: new Set(U.shuffle([...Array(25).keys()]).slice(0, m)), open: new Set(), over: false }; info();
+  } });
+  CS.cleanups.push(() => { if (g && !g.over) { g.over = true; CS.Bank.settle({ game: 'Minas', pick: 'Abandonou a rodada', bet: g.bet, payout: 0, extra: null }); g = null; } });
+};
+
+/* ---------- CORRIDA DE CAVALOS ---------- */
+CS.Games.horses = root => {
+  const U = CS.U, N = ['Relâmpago', 'Trovão', 'Faísca', 'Pegasus', 'Ventania', 'Dona Maria'], COL = ['#e5484d', '#3b82f6', '#eab308', '#e5e7eb', '#2dff8a', '#a855f7'];
+  const gen = () => { const w = N.map(() => 1 + CS.RNG.int(100) / 50), s = w.reduce((a, b) => a + b); return N.map((n, i) => { const p = w[i] / s; return { n, p, odd: Math.max(1.05, Math.floor(93 / p) / 100) }; }); };
+  let field = gen(), pick = null, busy = false, panel;
+  const $ = U.layout(root, '🐎 Corrida de cavalos', 'Aposte no vencedor. As odds seguem as chances de cada cavalo, com margem da casa de 7%. Corrida 100% fictícia.',
+    `<div class="table"><div id="track">${N.map((n, i) => `<div class="lane"><span class="hn" style="background:${COL[i]}">${i + 1}</span><div class="run"><i class="horse">🐎</i></div></div>`).join('')}</div><div class="res" id="res">Escolha seu cavalo.</div></div>`,
+    `<div class="picks" id="hp"></div>`);
+  const horses = [...root.querySelectorAll('.horse')];
+  const drawPicks = () => {
+    $('#hp').innerHTML = field.map((h, i) => `<button data-i="${i}" class="${pick === i ? 'on' : ''}">${i + 1}. ${h.n}<small>${h.odd.toFixed(2)}x</small></button>`).join('');
+    U.picks(root, '#hp button', b => { if (busy) return; pick = +b.dataset.i; drawPicks(); panel.update(); });
+  };
+  panel = CS.BetPanel.mount($('#bp'), { mult: () => pick === null ? 0 : field[pick].odd, onPlay: async bet => {
+    if (busy) return; if (pick === null) { CS.toast('Escolha um cavalo.'); return; } if (!CS.Bank.place(bet)) return;
+    busy = true; panel.setBusy(true); const f = field, p = pick;
+    const r = CS.RNG.int(1000000) / 1e6; let acc = 0, win = 5;
+    for (let i = 0; i < 6; i++) { acc += f[i].p; if (r < acc) { win = i; break; } }
+    const T = f.map((_, i) => i === win ? 5200 : 5500 + CS.RNG.int(1200) + i * 41), EZ = ['ease-in-out', 'cubic-bezier(.3,.1,.6,1)', 'cubic-bezier(.5,0,.3,1)', 'linear', 'cubic-bezier(.2,.6,.4,1)'];
+    horses.forEach(h => { h.style.transition = 'none'; h.style.left = '0'; }); void root.offsetWidth;
+    horses.forEach((h, i) => { h.style.transition = `left ${T[i]}ms ${EZ[CS.RNG.int(5)]}`; h.style.left = 'calc(100% - 34px)'; });
+    $('#res').className = 'res'; $('#res').textContent = 'Largada! 🏁';
+    await U.sleep(5400);
+    const won = win === p, profit = CS.Bank.settle({ game: 'Corrida de Cavalos', pick: `${p + 1}. ${f[p].n} @ ${f[p].odd.toFixed(2)}`, bet, payout: won ? Math.floor(bet * f[p].odd * 100) / 100 : 0, extra: null });
+    U.res($('#res'), profit, `<b>🏆 ${f[win].n}</b> `); field = gen(); busy = false; drawPicks(); panel.setBusy(false);
+  } });
+  drawPicks();
+};
+
 CS.toast = msg => {
   const t = document.createElement('div'); t.className = 'toast'; t.textContent = msg;
   document.getElementById('toasts').appendChild(t); setTimeout(() => t.remove(), 2800);
@@ -698,7 +786,9 @@ CS.Pages = (() => {
     { id: 'highcard', n: 'High Card', i: '🂡', cat: 'cartas', d: 'A carta mais alta vence', ok: 1 },
     { id: 'sports', n: 'Partidas simuladas', i: '⚽', cat: 'esportes', d: 'Futebol, basquete, lutas, corridas e eSports', ok: 1 },
     { id: 'dice', n: 'Dados', i: '🎲', cat: 'rapidos', d: 'Menor, maior ou número', ok: 1 },
-    { id: 'ball', n: 'Jogo da Bola', i: '⚪', cat: 'rapidos', d: 'Vermelho, preto ou verde', ok: 1 }
+    { id: 'ball', n: 'Jogo da Bola', i: '⚪', cat: 'rapidos', d: 'Vermelho, preto ou verde', ok: 1 },
+    { id: 'mines', n: 'Minas', i: '💣', cat: 'cassino', d: 'Ache os diamantes, fuja das minas', ok: 1 },
+    { id: 'horses', n: 'Corrida de cavalos', i: '🐎', cat: 'esportes', d: '6 cavalos, 1 vencedor', ok: 1 }
   ];
   const CATS = { cassino: '🎰 Cassino', cartas: '🃏 Cartas', esportes: '⚽ Esportes', rapidos: '🎡 Jogos rápidos' };
 
@@ -767,7 +857,7 @@ CS.Pages = (() => {
 
   return {
     home, cassino: catPage('Cassino', ['cassino', 'rapidos']), cartas: catPage('Cartas', ['cartas']), esportes: catPage('Esportes', ['esportes']),
-    history, stats, profile, roulette: CS.Roulette.render, slots: CS.Games.slots, crash: CS.Games.crash, blackjack: CS.Games.blackjack, highcard: CS.Games.highcard, dice: CS.Games.dice, ball: CS.Games.ball, sports: CS.Games.sports, esportes: CS.Games.sports,
+    history, stats, profile, roulette: CS.Roulette.render, slots: CS.Games.slots, crash: CS.Games.crash, blackjack: CS.Games.blackjack, highcard: CS.Games.highcard, dice: CS.Games.dice, ball: CS.Games.ball, mines: CS.Games.mines, horses: CS.Games.horses, sports: CS.Games.sports,
     achievements: soon('Conquistas', 4), ranking: soon('Ranking', 4)
   };
 })();
@@ -791,7 +881,7 @@ CS.Pages = (() => {
     CS.cleanups.forEach(f => f()); CS.cleanups.length = 0;
     const page = CS.Pages[r] || CS.Pages.home;
     view.innerHTML = ''; page(view);
-    const active = { roulette: 'cassino', slots: 'cassino', crash: 'cassino', dice: 'cassino', ball: 'cassino', blackjack: 'cartas', highcard: 'cartas', sports: 'esportes' }[r] || r;
+    const active = { roulette: 'cassino', slots: 'cassino', crash: 'cassino', dice: 'cassino', ball: 'cassino', blackjack: 'cartas', highcard: 'cartas', sports: 'esportes', mines: 'cassino', horses: 'esportes' }[r] || r;
     nav.querySelectorAll('a').forEach(a => a.classList.toggle('on', a.dataset.r === active));
     window.scrollTo(0, 0);
   };
@@ -816,5 +906,26 @@ CS.Pages = (() => {
     if (e.target.closest('.brand') && !document.body.classList.contains('intro')) CS.showIntro();
   });
   paint();
+})();
+(() => {
+  const g = document.getElementById('gate');
+  const get = (n, k) => { try { return window[n + 'Storage'].getItem(k); } catch (e) { return null; } };
+  const set = (n, k, v) => { try { window[n + 'Storage'].setItem(k, v); } catch (e) {} };
+  const STEPS = [
+    { e: '🔞', t: 'Você tem 18 anos ou mais?', s: 'É tudo simulação, mas a gente pergunta mesmo assim.', y: 'Sim, tenho +18', n: 'Não' },
+    { e: '🤨', t: 'Tem certeza?', s: 'Olha que eu confio em você, hein.', y: 'Tenho certeza', n: 'Ah, deixa pra lá' },
+    { e: '😤', t: 'Absoluta?', s: 'Absoluta, absolutíssima, de coração?', y: 'Absoluta!', n: 'Melhor não' },
+    { e: '🕵️', t: 'Tá mentindo pra mim não, né?', s: 'Olha nos meus olhos virtuais…', y: 'Juro por todas as fichas', n: 'Tá, me pegou' }
+  ];
+  let i = 0;
+  const draw = () => { const s = STEPS[i]; g.innerHTML = `<div class="gbox"><div class="gdots">${STEPS.map((_, k) => `<i class="${k <= i ? 'on' : ''}"></i>`).join('')}</div><div class="e">${s.e}</div><h2>${s.t}</h2><p>${s.s}</p><button class="btn-big" data-g="y">${s.y}</button><button class="btn-line" data-g="n">${s.n}</button></div>`; };
+  const block = () => { set('session', 'kard-block', '1'); g.innerHTML = '<div class="gbox"><div class="e">🚫</div><h2>Volte quando fizer 18</h2><p>É tudo de mentirinha, mas a regra é séria. Até lá, que tal um jogo de tabuleiro?</p></div>'; };
+  const open = () => { document.body.classList.add('gated'); g.classList.add('on'); };
+  g.addEventListener('click', e => {
+    const b = e.target.closest('[data-g]'); if (!b) return;
+    if (b.dataset.g === 'n') return block();
+    if (++i < STEPS.length) draw(); else { set('local', 'kard-18', '1'); g.classList.remove('on'); document.body.classList.remove('gated'); }
+  });
+  if (get('session', 'kard-block')) { open(); block(); } else if (!get('local', 'kard-18')) { open(); draw(); }
 })();
 </script></body></html>
